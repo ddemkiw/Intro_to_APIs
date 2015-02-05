@@ -40,6 +40,6 @@ var ddemkiw = {
     "collaborators": 0,
     "private_repos": 0
   }
-}
+};
 
 exports.ddemkiw = ddemkiw;
