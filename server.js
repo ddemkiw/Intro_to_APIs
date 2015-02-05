@@ -31,24 +31,24 @@ var options = {
 };
 
 
-// https.get(options, function(res) {
-//   var str = ""
-//   console.log("Got response: " + res.statusCode);
+https.get(options, function(res) {
+  var str = ""
+  console.log("Got response: " + res.statusCode);
       
-//   res.on('data', function (chunk) {
-//       str += chunk;
-//       console.log(str);
-//   });
+  res.on('data', function (chunk) {
+      str += chunk;
+      console.log(str);
+  });
 
-//   res.on('error', function(e) {
-//     console.log("Got error: " + e.message);
-//   });
+  res.on('error', function(e) {
+    console.log("Got error: " + e.message);
+  });
 
-//   res.on('end', function(e){
-//     JSON.parse(str)
-//   });
+  res.on('end', function(e){
+    JSON.parse(str)
+  });
 
-// });
+});
 
 server.listen(3000, function(){
   console.log("Server listening on port 3000");
