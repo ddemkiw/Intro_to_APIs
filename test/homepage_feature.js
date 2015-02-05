@@ -8,15 +8,9 @@ describe('homepage', function(){
 
   it('should say hello word', function(){
     casper.then(function(){
-      expect("body").to.have.text("Hello world");
+      expect("body").to.have.text("avatar_url");
     });
   });
-
-  it('should greet people individually', function(){
-    casper.thenOpen(host + '?name=sam', function(){
-      expect('body').to.have.text('Hello sam');
-
-    });
 
   });
 
