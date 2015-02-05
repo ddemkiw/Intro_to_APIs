@@ -1,4 +1,4 @@
-# Intro_to_APIs
+# Mini_Git
 ##Synopsis
 
 This is an app that pulls user information from the GitHub API, styles it and produces it on the page
