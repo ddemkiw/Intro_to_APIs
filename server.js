@@ -10,10 +10,12 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function(request, response){
+  response.header('Access-Control-Allow-Origin','*');
   response.render('index');
 });
 
 app.get('/users/ddemkiw', function(request,response) {
+  response.header('Access-Control-Allow-Origin','*');
   response.json({"id": gitInfo.ddemkiw.id, 
                  "login": gitInfo.ddemkiw.login, 
                  "public_repos": gitInfo.ddemkiw.public_repos, 
