@@ -2,11 +2,12 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var https = require('https');
-var gitInfo = require('./src/gitInfo.js')
-var username = "ddemkiw";
+var gitInfo = require('./public/javascript/gitInfo.js')
+
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
+app.use('/stylesheets', express.static(__dirname + '/public/stylesheets'));
+app.use('/javascript', express.static(__dirname + '/public/javascript'));
 
 
 app.get('/', function(request, response){
