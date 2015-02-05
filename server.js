@@ -14,7 +14,7 @@ app.get('/', function(request, response){
   response.render('index');
 });
 
-app.get('/users/ddemkiw', function(request,response) {
+app.get('/test/ddemkiw', function(request,response) {
   response.header('Access-Control-Allow-Origin','*');
   response.json({"id": gitInfo.ddemkiw.id, 
                  "login": gitInfo.ddemkiw.login, 
@@ -23,32 +23,38 @@ app.get('/users/ddemkiw', function(request,response) {
 });
 
 
-// var options = {
-//     host: 'api.github.com',
-//     path: '/users/' + username,
-//     method: 'GET',
-//     headers: {'user-agent': 'node.js'}
-// };
+app.get('/users/:username', function(request, response) {
 
+  var username = request.params.username;
 
-// https.get(options, function(res) {
-//   var str = ""
-//   console.log("Got response: " + res.statusCode);
-      
-//   res.on('data', function (chunk) {
-//       str += chunk;
-//       console.log(str);
-//   });
+  var options = {
+    host: 'api.github.com',
+    path: '/users/' + username,
+    headers: {'User-Agent': 'derpkiw'},
+    method:'GET'
+  };
 
-//   res.on('error', function(e) {
-//     console.log("Got error: " + e.message);
-//   });
+  callback = function(res) {
 
-//   res.on('end', function(e){
-//     JSON.parse(str)
-//   });
+    var str = '';
 
-// });
+    res.on('data', function(chunk) {
+      str += chunk;
+    });
+
+    res.on('error', function(e) {
+      console.log('Got error: ' + e);
+    });
+
+    res.on('end', function() {
+      response.json(JSON.parse(str));
+    });
+  };
+
+  https.request(options, callback).end();
+
+});
+
 
 server.listen(3000, function(){
   console.log("Server listening on port 3000");
