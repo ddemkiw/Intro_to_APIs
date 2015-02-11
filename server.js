@@ -4,7 +4,6 @@ var server = require('http').createServer(app);
 var https = require('https');
 var gitInfo = require('./public/javascript/gitInfo.js')
 
-
 app.set('view engine', 'ejs');
 app.use('/stylesheets', express.static(__dirname + '/public/stylesheets'));
 app.use('/javascript', express.static(__dirname + '/public/javascript'));
